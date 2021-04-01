@@ -29,7 +29,7 @@ In general, whether a (natrual) number a tech number depends on base system. Let
 
 > x = (d<sup>n</sup> - 2)d<sup>n</sup> + 1
 
-this number is of (2n-2) digit and can be devided into two (n-1)-digit numbers. One can readily recognized this as
+this number has (2n-2) digits and can be devided into two (n-1)-digit numbers. One can readily recognized this as
  > x = [(d<sup>n</sup> - 2) + 1]<sup>2</sup>
  
 Choose (d<sup>n</sup> - 2), shift by n digits (time by d<sup>n</sup>), and plus 1. This is a formula for some tech numbers of base d. QED.
@@ -46,24 +46,37 @@ ffe001<sub>16</sub> = 16,769,025
 
 ## Generalization
 
-Let number (a+b) less than d<sup>n</sup> and let y less than d<sup>2n</sup>
+Let number y less than d<sup>2n</sup>, and express it as
 
->y = (a+b)<sup>2</sup> = (αd<sup>n</sup> + β)<sup>2</sup>
+> y = (d<sup>n</sup>-q)<sup>2</sup> = (d<sup>n</sup>-2q)d<sup>n</sup> + q<sup>2</sup>
 
-,where α, β < d<sup>n</sup>. To assert 
+, where q < d<sup>n</sup>. 
 
->y = (a+b-β<sup>2</sup>)d<sup>n</sup> + β<sup>2</sup>
+### Case1
+The simplist choice is q<sup>2</sup> < d<sup>n</sup>, which yields q = 1.
 
-is quilvalent to solve
-> _a+b = α<sup>2</sup>d<sup>n</sup>+(2αβ+β<sup>2</sup>)_
+This gives the radix-trivial tech number formula above. 
 
-The simplist chose is a+b = d<sup>n</sup>-1, and (α, β) = (1, -1)
+### Case2
+Consider q<sup>2</sup> = αd<sup>n</sup> + β, and rewrite y as
 
-,which gives the base-trivial tech number formula above. 
+> y = (d<sup>n</sup>-2q+α)d<sup>n</sup> + β
 
-In general, the solutions depends on what base, d, is used. Tech number is overall defined unber base system.
+To assert y a tech number is equilvalent to solve
+> α + β = q, q<sup>2</sup> = αd<sup>n</sup> + β
 
-## [Demostration](http://tpcg.io/tEjMtLoT)
+Therefore _q itself is also a tech number!_ All tech numbers below d<sup>2n</sup> could be generated from one, or multiple, smaller tech numbers.
+
+2025<sub>10</sub> and 3025<sub>10</sub> are such examples between 1,000 and 10,000. They are generators of each other.
+
+### Case3
+Tech numbers could have ODD digits. This happens when α is smaller then d<sup>d-1</sup> while y is consistent of the definition.
+
+88,209 = (88 + 209)<sup>2</sup> is an example; and it is the generator of 494,209. Although these are not usually reffered as tech numbers.
+
+In general, the solution branches depends on what base, d, is used. To summarize, tech numbers are defined unber specific base system.
+
+## [Online Demostration](http://tpcg.io/tEjMtLoT)
 
 An online tech number verifier, coded with Java.
 
